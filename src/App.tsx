@@ -1,5 +1,12 @@
+import { Container } from "react-bootstrap";
+import { PricingCards } from "./components/PricingCards";
+
 function App() {
-  return <div className="App"></div>;
+  return (
+    <Container className="App">
+      <PricingCards />
+    </Container>
+  );
 }
 
 export default App;
