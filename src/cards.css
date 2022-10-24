@@ -1,6 +1,13 @@
 
+.highlightedPlan{
+    background-color: rgba(112, 102, 255, 1)!important;
+}
 
-@media only screen and (min-width: 64.063em) { 
+.secondaryPlan{
+    background-color: rgba(255, 255, 255, .6)!important;
+}
+
+@media only screen and (min-width: 1024px) { 
 .animate::before{
     z-index: 10;  
         position:absolute;
@@ -28,7 +35,6 @@
         z-index:6;
         scale:1.04;
         opacity:1;
-        transform:translate(0,5%);
         image-rendering: smooth;  
         backface-visibility: hidden;   
     }
@@ -39,11 +45,11 @@
 
     .planWrapper:hover .animate{
         opacity:0.4;
-        scale: 0.8;
+        scale: 0.9;
     }
     .planWrapper .animate:hover{
         opacity:1;
-        scale: 1;
+        scale: 1.03;
     }
 
 } 

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Button, Card, Form, Modal } from "react-bootstrap";
 import { Check } from "react-bootstrap-icons";
-import { Plan } from "../App";
+import { Plan } from "./PricingPage";
 import image from "../media/modal_img.png";
 import "../cards.css";
 
@@ -15,15 +15,8 @@ export const PlanCard = (p: { plan: Plan }) => {
     <>
       <Card
         className={`h-100 shadow border-0 animate ${
-          p.plan.id === "2" ? "text-white" : ""
+          p.plan.id === "2" ? "text-white highlightedPlan" : "secondaryPlan"
         }`}
-        role="button"
-        style={{
-          backgroundColor:
-            p.plan.id === "2"
-              ? "rgba(112, 102, 255, 1)"
-              : "rgba(255, 255, 255, .6)",
-        }}
       >
         <Card.Img
           src={p.plan.img}
@@ -40,12 +33,16 @@ export const PlanCard = (p: { plan: Plan }) => {
             per month
           </Card.Subtitle>
 
-          <Card.Text>
-            {p.plan.featureList.map((feature) => (
-              <p style={{ color: !feature.included ? "lightgray" : "" }}>
-                <Check size={30} /> {feature.feature}
-              </p>
-            ))}
+          <Card.Text className="d-flex justify-content-center">
+            <div>
+              {p.plan.featureList.map((feature) => (
+                <p
+                  className={!feature.included ? "text-black-50 fw-light" : ""}
+                >
+                  <Check size={30} /> {feature.feature}
+                </p>
+              ))}
+            </div>
           </Card.Text>
 
           <div className="d-flex justify-content-center">
