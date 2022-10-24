@@ -20,7 +20,7 @@ export const PlanCard = (p: { plan: Plan }) => {
       >
         <Card.Img
           src={p.plan.img}
-          className="mt-3 img-top"
+          className="mt-3 img-top w-75 align-self-center"
           alt="meditating-illustration"
         />
 
@@ -48,7 +48,7 @@ export const PlanCard = (p: { plan: Plan }) => {
           <div className="d-flex justify-content-center">
             <Button
               size="lg"
-              className="w-75 rounded-pill shadow-sm"
+              className="w-75 rounded-pill shadow-sm mb-2"
               variant={p.plan.id === "2" ? "dark" : "outline-dark"}
               onClick={handleShowSignUpModal}
             >
