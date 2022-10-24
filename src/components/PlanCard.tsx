@@ -37,8 +37,9 @@ export const PlanCard = (p: { plan: Plan }) => {
 
           <Card.Text className="d-flex justify-content-center">
             <div>
-              {p.plan.featureList.map((feature) => (
+              {p.plan.featureList.map((feature, index) => (
                 <p
+                  key={index}
                   className={!feature.included ? "text-black-50 fw-light" : ""}
                 >
                   <Check size={30} /> {feature.feature}

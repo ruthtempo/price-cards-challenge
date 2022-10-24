@@ -73,6 +73,7 @@ export const PricingPage = () => {
     <Row className="mt-4 planWrapper ">
       {pricingPlans.map((plan) => (
         <Col
+          key={plan.title}
           className="mb-3"
           md={{ span: 6, offset: 3 }}
           lg={{ span: 4, offset: 0 }}
