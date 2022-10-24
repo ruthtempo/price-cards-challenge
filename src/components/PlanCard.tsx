@@ -12,7 +12,7 @@ export const PlanCard = (p: { plan: Plan }) => {
     setShowModal(true);
   };
   return (
-    <div className="plan-wrapper">
+    <>
       <Card
         className={`h-100 shadow border-0 animate ${
           p.plan.id === "2" ? "text-white" : ""
@@ -80,6 +80,6 @@ export const PlanCard = (p: { plan: Plan }) => {
           </Form>
         </Modal.Body>
       </Modal>
-    </div>
+    </>
   );
 };
