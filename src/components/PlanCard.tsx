@@ -14,8 +14,10 @@ export const PlanCard = (p: { plan: Plan }) => {
   return (
     <>
       <Card
-        className={`h-100 shadow border-0 animate ${
-          p.plan.id === "2" ? "text-white highlightedPlan" : "secondaryPlan"
+        className={`shadow border-0 animate ${
+          p.plan.id === "2"
+            ? "text-white highlightedPlan py-4"
+            : "secondaryPlan mt-4"
         }`}
       >
         <Card.Img
