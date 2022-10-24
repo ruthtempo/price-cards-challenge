@@ -1,0 +1,52 @@
+
+
+@media only screen and (min-width: 64.063em) { 
+.animate::before{
+    z-index: 10;  
+        position:absolute;
+        content: "";
+        background: rgba(251, 242, 255, 0.3);
+        width: 80%;
+        height: 100%;
+        top: 0%;
+        transform: skew(45deg); 
+        transition: left  0.5s ease-in-out;
+        left:-200%;
+}
+
+    .animate:hover::before{
+        left:200%;
+    }
+    .animate{
+        position:relative;
+        overflow: hidden;
+        transition: 0.3s ease-in-out;
+        z-index:5;
+       }
+       
+    .animate:hover{
+        z-index:6;
+        scale:1.04;
+        opacity:1;
+        transform:translate(0,5%);
+        image-rendering: smooth;  
+        backface-visibility: hidden;   
+    }
+
+    .modal-content{
+        background-image: linear-gradient(to top, #dfe9f3 0%, white 100%);
+    }
+
+    .plan-wrapper:hover .animate{
+        opacity:0.4;
+        scale: 0.8;
+    }
+    .plan-wrapper .animate:hover{
+        opacity:1;
+        scale: 1;
+    }
+
+
+   
+} 
+

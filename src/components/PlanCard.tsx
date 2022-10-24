@@ -2,7 +2,8 @@ import { useState } from "react";
 import { Button, Card, Form, Modal } from "react-bootstrap";
 import { Check } from "react-bootstrap-icons";
 import { Plan } from "../App";
-import image from "../media/1.png";
+import image from "../media/modal_img.png";
+import "../cards.css";
 
 export const PlanCard = (p: { plan: Plan }) => {
   const [showModal, setShowModal] = useState(false);
@@ -11,29 +12,37 @@ export const PlanCard = (p: { plan: Plan }) => {
     setShowModal(true);
   };
   return (
-    <>
+    <div className="plan-wrapper">
       <Card
-        className={
-          "h-100 shadow" +
-          (p.plan.id === "2"
-            ? "border border-4 border-dark text-white"
-            : "border border-info")
-        }
+        className={`h-100 shadow border-0 animate ${
+          p.plan.id === "2" ? "text-white" : ""
+        }`}
         role="button"
-        style={{ backgroundColor: p.plan.id === "2" ? "#5A45F2" : "" }}
+        style={{
+          backgroundColor:
+            p.plan.id === "2"
+              ? "rgba(112, 102, 255, 1)"
+              : "rgba(255, 255, 255, .6)",
+        }}
       >
-        <Card.Img src={p.plan.img} className="mt-3 img-top " />
+        <Card.Img
+          src={p.plan.img}
+          className="mt-3 img-top"
+          alt="meditating-illustration"
+        />
 
         <Card.Body className="d-flex flex-column ms-2 collapse">
           <p className="h5 text-center">{p.plan.title}</p>
-          <Card.Title className="fs-3 text-center">{p.plan.price}</Card.Title>
+          <Card.Title className="display-6 text-center">
+            {p.plan.price}
+          </Card.Title>
           <Card.Subtitle className="fs-6 mb-4 fw-light text-center">
             per month
           </Card.Subtitle>
 
           <Card.Text>
             {p.plan.featureList.map((feature) => (
-              <p style={{ color: !feature.included ? "#C0C0C0" : "" }}>
+              <p style={{ color: !feature.included ? "lightgray" : "" }}>
                 <Check size={30} /> {feature.feature}
               </p>
             ))}
@@ -42,8 +51,8 @@ export const PlanCard = (p: { plan: Plan }) => {
           <div className="d-flex justify-content-center">
             <Button
               size="lg"
-              className="w-75 rounded-pill"
-              variant={p.plan.id === "2" ? "dark" : "info"}
+              className="w-75 rounded-pill shadow-sm"
+              variant={p.plan.id === "2" ? "dark" : "outline-dark"}
               onClick={handleShowSignUpModal}
             >
               {p.plan.actionText}
@@ -53,8 +62,8 @@ export const PlanCard = (p: { plan: Plan }) => {
       </Card>
       <Modal show={showModal} onHide={handleModalClose} className="text-center">
         <Modal.Header closeButton className="border-bottom-0"></Modal.Header>
-        <Modal.Body>
-          <img src={image} className="w-50" />
+        <Modal.Body className="signUp">
+          <img src={image} className="w-50" alt="girls-meditating" />
           <h4 className="display-4 mb-4">Sign Up</h4>
           <p>Please Sign up your email and we will get in touch with you</p>
           <Form>
@@ -65,10 +74,12 @@ export const PlanCard = (p: { plan: Plan }) => {
               placeholder="name@company.com"
               required
             />
-            <Button type="submit">Sign Up</Button>
+            <Button type="submit" className="w-25 rounded-pill" variant="dark">
+              Sign Up
+            </Button>
           </Form>
         </Modal.Body>
       </Modal>
-    </>
+    </div>
   );
 };
