@@ -5,11 +5,12 @@ import img2 from "../media/2.png";
 import img3 from "../media/3.png";
 
 export type Feature = {
-  feature: string;
+  name: string;
   included: boolean;
 };
 export type Plan = {
   id: string;
+  variant: "secondary" | "primary";
   title: string;
   price: string;
   img: string;
@@ -22,15 +23,16 @@ const pricingPlans: Plan[] = [
     id: "1",
     title: "Starter",
     price: "Free",
+    variant: "secondary",
     img: img1,
     featureList: [
-      { feature: "Full courses library", included: true },
-      { feature: "A new daily meditation", included: true },
-      { feature: "Access to meditation guru", included: true },
-      { feature: "Sleep podcasts and exercices", included: false },
-      { feature: "Mindfulness Exercices", included: false },
-      { feature: "Guided meditations", included: false },
-      { feature: "Cooking Recipes", included: false },
+      { name: "Full courses library", included: true },
+      { name: "A new daily meditation", included: true },
+      { name: "Access to meditation guru", included: true },
+      { name: "Sleep podcasts and exercices", included: false },
+      { name: "Mindfulness Exercices", included: false },
+      { name: "Guided meditations", included: false },
+      { name: "Cooking Recipes", included: false },
     ],
     actionText: "Get Started",
   },
@@ -38,15 +40,16 @@ const pricingPlans: Plan[] = [
     id: "2",
     title: "Pro",
     price: "$49",
+    variant: "primary",
     img: img2,
     featureList: [
-      { feature: "Full courses library", included: true },
-      { feature: "A new daily meditation", included: true },
-      { feature: "Access to meditation guru", included: true },
-      { feature: "Sleep podcasts and exercices", included: true },
-      { feature: "Mindfulness Exercices", included: true },
-      { feature: "Guided meditations", included: false },
-      { feature: "Cooking Recipes", included: false },
+      { name: "Full courses library", included: true },
+      { name: "A new daily meditation", included: true },
+      { name: "Access to meditation guru", included: true },
+      { name: "Sleep podcasts and exercices", included: true },
+      { name: "Mindfulness Exercices", included: true },
+      { name: "Guided meditations", included: false },
+      { name: "Cooking Recipes", included: false },
     ],
     actionText: "Become a Pro",
   },
@@ -54,15 +57,16 @@ const pricingPlans: Plan[] = [
     id: "3",
     title: "Teams",
     price: "$99",
+    variant: "secondary",
     img: img3,
     featureList: [
-      { feature: "Full courses library", included: true },
-      { feature: "A new daily meditation", included: true },
-      { feature: "Access to meditation guru", included: true },
-      { feature: "Sleep podcasts and exercices", included: true },
-      { feature: "Mindfulness Exercices", included: true },
-      { feature: "Guided meditations", included: true },
-      { feature: "Cooking Recipes", included: true },
+      { name: "Full courses library", included: true },
+      { name: "A new daily meditation", included: true },
+      { name: "Access to meditation guru", included: true },
+      { name: "Sleep podcasts and exercices", included: true },
+      { name: "Mindfulness Exercices", included: true },
+      { name: "Guided meditations", included: true },
+      { name: "Cooking Recipes", included: true },
     ],
     actionText: "Get Teams",
   },
@@ -70,7 +74,7 @@ const pricingPlans: Plan[] = [
 
 export const PricingPage = () => {
   return (
-    <Row className="mt-4 planWrapper ">
+    <Row className="mt-4 planWrapper">
       {pricingPlans.map((plan) => (
         <Col
           key={plan.title}

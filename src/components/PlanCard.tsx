@@ -3,7 +3,7 @@ import { Button, Card, Form, Modal } from "react-bootstrap";
 import { Check } from "react-bootstrap-icons";
 import { Plan } from "./PricingPage";
 import image from "../media/modal_img.png";
-import "../cards.css";
+import "./PlanCard.css";
 
 export const PlanCard = (p: { plan: Plan }) => {
   const [showModal, setShowModal] = useState(false);
@@ -15,9 +15,9 @@ export const PlanCard = (p: { plan: Plan }) => {
     <>
       <Card
         className={`shadow border-0 animate ${
-          p.plan.id === "2"
+          p.plan.variant === "primary"
             ? "text-white highlightedPlan py-4"
-            : "secondaryPlan mt-4"
+            : "secondaryPlan mt-lg-4"
         }`}
       >
         <Card.Img
@@ -27,32 +27,33 @@ export const PlanCard = (p: { plan: Plan }) => {
         />
 
         <Card.Body className="d-flex flex-column ms-2 collapse">
-          <p className="h5 text-center">{p.plan.title}</p>
+          <h5 className="text-center">{p.plan.title}</h5>
           <Card.Title className="display-6 text-center">
             {p.plan.price}
           </Card.Title>
           <Card.Subtitle className="fs-6 mb-4 fw-light text-center">
             per month
           </Card.Subtitle>
-
-          <Card.Text className="d-flex justify-content-center">
-            <div>
+          <div className="d-flex justify-content-center pb-2">
+            <ul className="list-unstyled">
               {p.plan.featureList.map((feature, index) => (
-                <p
+                <li
                   key={index}
-                  className={!feature.included ? "text-black-50 fw-light" : ""}
+                  className={`pb-3 ${
+                    !feature.included ? "text-black-50 fw-light" : ""
+                  }`}
                 >
-                  <Check size={30} /> {feature.feature}
-                </p>
+                  <Check size={30} /> {feature.name}
+                </li>
               ))}
-            </div>
-          </Card.Text>
+            </ul>
+          </div>
 
           <div className="d-flex justify-content-center">
             <Button
               size="lg"
               className="w-75 rounded-pill shadow-sm mb-2"
-              variant={p.plan.id === "2" ? "dark" : "outline-dark"}
+              variant={p.plan.variant === "primary" ? "dark" : "outline-dark"}
               onClick={handleShowSignUpModal}
             >
               {p.plan.actionText}
