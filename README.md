@@ -1,5 +1,7 @@
 <h1>Documentation</h1>
 
+_Project developed to classify for JUMP2DIGITAL 2022 Hackaton, Barcelona_
+
 <h3>File structure:</h3>
 
 src: contains
