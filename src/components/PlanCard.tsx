@@ -61,7 +61,12 @@ export const PlanCard = (p: { plan: Plan }) => {
           </div>
         </Card.Body>
       </Card>
-      <Modal show={showModal} onHide={handleModalClose} className="text-center">
+      <Modal
+        show={showModal}
+        onHide={handleModalClose}
+        className="text-center"
+        centered
+      >
         <Modal.Header closeButton className="border-bottom-0"></Modal.Header>
         <Modal.Body className="signUp">
           <img src={image} className="w-50" alt="girls-meditating" />
@@ -71,11 +76,11 @@ export const PlanCard = (p: { plan: Plan }) => {
             <Form.Control
               className="mb-4"
               size="lg"
-              type="text"
+              type="email"
               placeholder="name@company.com"
               required
             />
-            <Button type="submit" className="w-25 rounded-pill" variant="dark">
+            <Button type="submit" className=" rounded-pill mb-2" variant="dark">
               Sign Up
             </Button>
           </Form>

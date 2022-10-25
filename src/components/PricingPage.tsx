@@ -1,8 +1,8 @@
 import { Col, Row } from "react-bootstrap";
 import { PlanCard } from "./PlanCard";
-import img1 from "../media/1.png";
-import img2 from "../media/2.png";
-import img3 from "../media/3.png";
+import img1 from "../media/free.png";
+import img2 from "../media/pro.png";
+import img3 from "../media/teams.png";
 
 export type Feature = {
   name: string;
